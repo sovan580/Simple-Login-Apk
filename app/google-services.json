@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "770843968521",
+    "firebase_url": "https://robotics-22714.firebaseio.com",
+    "project_id": "robotics-22714",
+    "storage_bucket": "robotics-22714.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:770843968521:android:db25596430466a534a24d8",
+        "android_client_info": {
+          "package_name": "com.example.robotics"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "770843968521-il0p5i1ed36qsqpvjl2ch3vvdovp4r8e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.robotics",
+            "certificate_hash": "efc5f81e9884a375fe2fe3f373df78052e3590d8"
+          }
+        },
+        {
+          "client_id": "770843968521-0nr1s7nq7amjd5sameo28s0r6jbqkgo7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-ngUf9D5RYmIWsEqE384ymzlyuwFr8Ys"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "770843968521-0nr1s7nq7amjd5sameo28s0r6jbqkgo7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
