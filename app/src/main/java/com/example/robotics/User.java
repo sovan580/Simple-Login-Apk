@@ -24,7 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class User extends AppCompatActivity {
     EditText fullname,email,phone,password;
-    Button update,users,logout;
+    Button update,users,logout,updatepassword;
     DatabaseReference databaseReference;
     private FirebaseAuth mAuth;
     private FirebaseUser firebaseUser;
@@ -41,6 +41,7 @@ public class User extends AppCompatActivity {
         update=findViewById(R.id.update);
         users=findViewById(R.id.users);
         logout=findViewById(R.id.logout);
+        updatepassword=findViewById(R.id.updatepass);
         mAuth=FirebaseAuth.getInstance();
         databaseReference= FirebaseDatabase.getInstance().getReference("person");
         firebaseUser=mAuth.getCurrentUser();
@@ -51,7 +52,7 @@ public class User extends AppCompatActivity {
                 Fname=fullname.getText().toString();
                 Email=email.getText().toString();
                 Phone=phone.getText().toString();
-                Password=password.getText().toString();
+
                 if(Fname.isEmpty()){
                     fullname.setError("Please enter User's Name");
                     fullname.requestFocus();
@@ -72,18 +73,10 @@ public class User extends AppCompatActivity {
                     phone.requestFocus();
                     return;
                 }
-                if(Password.isEmpty()){
-                    password.setError("Please enter a Password");
-                    password.requestFocus();
-                    return;
-                }
+
                 updateUserInfo();
-                updateUserPassword();
-                Toast.makeText(getApplicationContext(), "Login again to see Changes!!!", Toast.LENGTH_SHORT).show();
-                finish();
-                Intent intent=new Intent(User.this,Login.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
+                Toast.makeText(getApplicationContext(), "Details Updated!!!", Toast.LENGTH_SHORT).show();
+
             }
         });
         users.setOnClickListener(new View.OnClickListener() {
@@ -100,6 +93,24 @@ public class User extends AppCompatActivity {
                 finish();
                 Intent intent=new Intent(User.this,Login.class);
                 startActivity(intent);
+            }
+        });
+        updatepassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Password=password.getText().toString();
+                if(Password.isEmpty()){
+                    password.setError("Please enter a Password");
+                    password.requestFocus();
+                    return;
+                }
+                updateUserPassword();
+                Toast.makeText(getApplicationContext(), "Login again to Confirm Password Change!!!", Toast.LENGTH_SHORT).show();
+                finish();
+                Intent intent=new Intent(User.this,Login.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+
             }
         });
     }
