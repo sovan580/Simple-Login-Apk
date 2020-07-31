@@ -32,7 +32,6 @@ public class Login extends AppCompatActivity {
     DatabaseReference databaseReference;
     FirebaseUser User;
     ProgressDialog pd;
-    SharedPreferences sp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,11 +44,6 @@ public class Login extends AppCompatActivity {
         txt_email = findViewById(R.id.email);
         txt_pass = findViewById(R.id.password);
         mAuth = FirebaseAuth.getInstance();
-        sp=getSharedPreferences("login",MODE_PRIVATE);
-        if(sp.getBoolean("login",false)){
-            Intent i=new Intent(Login.this,User.class);
-            startActivity(i);
-        }
         databaseReference = FirebaseDatabase.getInstance().getReference("person");
         callLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,7 +54,6 @@ public class Login extends AppCompatActivity {
                 pd.setContentView(R.layout.progress);
                 pd.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
                 userLogin();
-                sp.edit().putBoolean("logged",true).apply();
             }
         });
         callSign.setOnClickListener(new View.OnClickListener() {
